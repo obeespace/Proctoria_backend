@@ -2,7 +2,7 @@ const Question = require('../models/questionModel.js')
 
 const createQuestions = async (req, res) => {
     try {
-        if (!req.body.question || !req.body.answerOne || !req.body.answerTwo || !req.body.answerThree || !req.body.answerFour || !req.body.correctAnswer){
+        if (!req.body.question || !req.body.classnumber || !req.body.answerOne || !req.body.answerTwo || !req.body.answerThree || !req.body.answerFour || !req.body.correctAnswer){
           return res.status(400).send({message: "Kindly input all required fields"})
         }
         const question = await Question.create(req.body)

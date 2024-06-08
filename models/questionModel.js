@@ -1,40 +1,19 @@
 const mongoose = require("mongoose")
 
 const questionSchema = mongoose.Schema({
-    question: {
-        type: String,
-        require: true
-    },
+    question: String,
 
-    class: {
-        type: Number,
-        require: true
-    },
+    classnumber: Number,
 
-    answerOne: {
-        type: String,
-        require: true
-    },
+    answerOne: String,
 
-    answerTwo: {
-        type: String,
-        require: true
-    },
+    answerTwo: String,
 
-    answerThree: {
-        type: String,
-        require: true
-    },
+    answerThree: String,
 
-    answerFour: {
-        type: String,
-        require: true
-    },
+    answerFour: String,
 
-    correctAnswer: {
-        type: String,
-        require: true
-    }
+    correctAnswer: String
 },
 
 {
