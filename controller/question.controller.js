@@ -17,7 +17,8 @@ const createQuestions = async (req, res) => {
 const getQuestion = async (req, res) => {
     try {
         const {id} = req.params
-        const question = await Question.findById(id)
+        // excluding the correct answer
+        const question = await Question.findById(id).select('-correctAnswer');
         res.status(200).json(question)
         
       } catch (error) {
@@ -32,8 +33,8 @@ const updateQuestion = async (req, res) => {
         if (!question){
           return res.status(404).json({Message: "Question not found!"})
         }
-        const updatedBook = await Question.findById(id)
-        res.status(200).json(updatedBook)
+        const updatedQuestion = await Question.findById(id)
+        res.status(200).json(updatedQuestion)
       } catch (error) {
         res.status(500).json({message: error.message})
       }
