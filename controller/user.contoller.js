@@ -49,6 +49,7 @@ const signin = async(req, res) => {
                 return res.status(401).json({message: 'Invalid email or password'})
             }
 
+            const useremail = user.email
             const classnumber = user.classnumber
             const username = user.firstname
 
@@ -66,7 +67,8 @@ const signin = async(req, res) => {
                 classnumber,
                 token: token,
                 admintoken,
-                username
+                username,
+                useremail
             })
         
 
