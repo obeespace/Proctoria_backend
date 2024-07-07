@@ -1,4 +1,4 @@
-import UserModel from '../models/UserModel.js'
+import UserModel from '../models/User.model.js'
 import { genSalt, hash, compare } from 'bcrypt'
 
 import pkg from 'jsonwebtoken';

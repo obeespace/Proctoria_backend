@@ -1,5 +1,5 @@
-import StudentModel from "../models/studentAnswers.js";
-import QuestionModel from "../models/questionModel.js";
+import StudentModel from "../models/student.model.js";
+import QuestionModel from "../models/question.model.js";
 
 
 
