@@ -5,6 +5,7 @@ import cors from 'cors';
 import StudentUserRouter from './router/user.route.js';
 import questionRouter from './router/question.route.js';
 import { logger, authenticate } from "./middleware/auth.middleware.js";
+
 const app = express()
 app.use(json())
 app.use(urlencoded({extended: false}))
