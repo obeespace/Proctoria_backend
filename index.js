@@ -1,13 +1,13 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require('cors')
+import express, { json, urlencoded } from "express";
+import { connect } from "mongoose";
+import cors from 'cors';
 
-const StudentUserRouter = require('./router/user.route.js')
-const questionRouter = require('./router/question.route.js');
-const { logger, authenticate } = require("./middleware/auth.middleware.js");
+import StudentUserRouter from './router/user.route.js';
+import questionRouter from './router/question.route.js';
+import { logger, authenticate } from "./middleware/auth.middleware.js";
 const app = express()
-app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(json())
+app.use(urlencoded({extended: false}))
 app.use(cors())
 
 app.use(logger);
@@ -15,8 +15,7 @@ app.use('/api/question', authenticate, questionRouter)
 app.use('/api/studentuser', StudentUserRouter)
 
 const uri = "mongodb+srv://obeewon20:O3ZX4wPoIQxSjaJT@cluster0.vh9mqxs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-mongoose
-  .connect(uri)
+connect(uri)
   .then(() => {
     app.listen(3007, () => {
         console.log("listening at 3007");
