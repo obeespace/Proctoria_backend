@@ -158,7 +158,7 @@ const Controller = {
     }
   },
 
-  getscore: async (req, res) => {
+  getScore: async (req, res) => {
     try {
       const students = await StudentModel.find({ finalScore: { $exists: true } }, 'name email finalScore');
       return res.status(200).json(students);

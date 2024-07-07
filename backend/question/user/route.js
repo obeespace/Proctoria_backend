@@ -19,7 +19,7 @@ router.post('/submit-answer', Controller.submitAnswer)
 
 router.get('/final-result/:email', Controller.getFinalResult)
 
-router.get('/admin/scores', Controller.getscore)
+router.get('/admin/scores', Controller.getScore)
 
 
 
