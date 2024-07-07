@@ -1,9 +1,9 @@
-import StudentModel from "../models/student.model.js";
-import QuestionModel from "../models/question.model.js";
+import StudentModel from "../../../models/student.model.js";
+import QuestionModel from "../../../models/question.model.js";
 
 
 
-const QuestionController = {
+const Controller = {
 
   createQuestions: async (req, res) => {
     try {
@@ -171,4 +171,4 @@ const QuestionController = {
 
 
 
-export default QuestionController;
+export default Controller;

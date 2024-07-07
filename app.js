@@ -3,7 +3,7 @@ import { connect } from "mongoose";
 import cors from 'cors';
 
 import studentUserRouter from './router/user.route.js';
-import questionRouter from './router/question.route.js';
+import questionRouter from './backend/question/user/route.js';
 import { logger, authenticate } from "./middleware/auth.middleware.js";
 import env from "./config/env.js";
 import connectToDatabase from "./config/mongo.config.js";

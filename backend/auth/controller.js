@@ -1,4 +1,4 @@
-import UserModel from '../models/User.model.js'
+import UserModel from '../../models/User.model.js'
 import { genSalt, hash, compare } from 'bcrypt'
 
 import pkg from 'jsonwebtoken';
@@ -7,7 +7,7 @@ const { sign } = pkg;
 
 
 const secrete = 'trope77_jedi'
-let admintoken
+let adminToken
 
 
 const UserController = {
@@ -60,9 +60,9 @@ const UserController = {
                 const username = user.firstname
     
                 if (email ==='obeewon20@gmail.com' && password === 'getitright'){
-                    admintoken = 'runjozi'
+                    adminToken = 'runjozi'
                 } else {
-                    admintoken = ''
+                    adminToken = ''
                 }
     
     
@@ -72,7 +72,7 @@ const UserController = {
                     message: "Successful Login",
                     classnumber,
                     token: token,
-                    admintoken,
+                    admintoken: adminToken,
                     username,
                     useremail
                 })

@@ -3,7 +3,7 @@
 import { Router } from 'express'
 
 
-import UserController from '../controller/user.contoller.js'
+import UserController from '../backend/auth/controller.js'
 
 
 
