@@ -2,7 +2,7 @@ import express, { json, urlencoded } from "express";
 import { connect } from "mongoose";
 import cors from 'cors';
 
-import studentUserRouter from './router/user.route.js';
+import studentUserRouter from './backend/auth/route.js';
 import questionRouter from './backend/question/user/route.js';
 import { logger, authenticate } from "./middleware/auth.middleware.js";
 import env from "./config/env.js";

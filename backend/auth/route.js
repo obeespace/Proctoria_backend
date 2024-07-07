@@ -1,14 +1,10 @@
+import {Router} from 'express'
 
 
-import { Router } from 'express'
-
-
-import UserController from '../backend/auth/controller.js'
-
+import UserController from './controller.js'
 
 
 const router = Router();
-
 
 
 router.post('/register', UserController.signup)

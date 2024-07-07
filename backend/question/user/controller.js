@@ -1,5 +1,5 @@
-import StudentModel from "../../../models/student.model.js";
-import QuestionModel from "../../../models/question.model.js";
+import StudentModel from "../../student/model.js";
+import Model from "../model.js";
 
 
 
@@ -20,7 +20,7 @@ const Controller = {
           .status(400)
           .send({ message: "Kindly input all required fields" });
       }
-      const question = await QuestionModel.create(req.body);
+      const question = await Model.create(req.body);
       res.status(200).json(question);
     } catch (error) {
       console.log(error);
@@ -33,7 +33,7 @@ const Controller = {
       const { id } = req.params;
       // excluding the correct answer
 
-      const question = await QuestionModel.findById(id).select("-correctAnswer");
+      const question = await Model.findById(id).select("-correctAnswer");
       res.status(200).json(question);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -43,11 +43,11 @@ const Controller = {
   updateQuestion: async (req, res) => {
     try {
       const { id } = req.params;
-      const question = await QuestionModel.findByIdAndUpdate(id, req.body);
+      const question = await Model.findByIdAndUpdate(id, req.body);
       if (!question) {
         return res.status(404).json({ Message: "Question not found!" });
       }
-      const updatedQuestion = await QuestionModel.findById(id);
+      const updatedQuestion = await Model.findById(id);
       res.status(200).json(updatedQuestion);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -56,7 +56,7 @@ const Controller = {
 
   getQuestions: async (req, res) => {
     try {
-      const questions = await QuestionModel.find({});
+      const questions = await Model.find({});
       res.status(200).json(questions);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -66,7 +66,7 @@ const Controller = {
   deleteQuestions: async (req, res) => {
     try {
       const { id } = req.params;
-      const question = await QuestionModel.findByIdAndDelete(id);
+      const question = await Model.findByIdAndDelete(id);
       if (!question) {
         return res.status(404).json({ message: "Question not found!" });
       }
@@ -88,7 +88,7 @@ const Controller = {
         return res.status(400).json({ message: "All fields are required" });
       }
 
-      const question = await QuestionModel.findById(questionId);
+      const question = await Model.findById(questionId);
       if (!question) {
         return res.status(404).json({ message: "Question not found" });
       }
@@ -134,7 +134,7 @@ const Controller = {
       let correctCount = 0;
 
       for (const studentAnswer of studentAnswers) {
-        const question = await QuestionModel.findById(studentAnswer.questionId);
+        const question = await Model.findById(studentAnswer.questionId);
 
         if (question && question.correctAnswer === studentAnswer.answer) {
           correctCount++;

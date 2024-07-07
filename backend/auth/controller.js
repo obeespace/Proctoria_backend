@@ -1,4 +1,4 @@
-import UserModel from '../../models/User.model.js'
+import Model from './model.js'
 import { genSalt, hash, compare } from 'bcrypt'
 
 import pkg from 'jsonwebtoken';
@@ -23,7 +23,7 @@ const UserController = {
             const salt = await genSalt(10)
             const harshedPassword = await hash(password, salt)
     
-            const user = new UserModel({
+            const user = new Model({
                 firstname,
                 lastname,
                 email,
@@ -45,7 +45,7 @@ const UserController = {
     signin: async(req, res) => {
         try {
             const {email, password} = req.body
-            const user = await UserModel.findOne({email: email})
+            const user = await Model.findOne({email: email})
                 if (!user){
                     return res.status(401).json({message: 'Invalid email or password'})
                 }
