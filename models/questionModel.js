@@ -1,24 +1,27 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose";
 
-const questionSchema = mongoose.Schema({
-    question: String,
+const questionSchema = mongoose.Schema(
+	{
+		question: String,
 
-    classnumber: Number,
+		classnumber: Number,
 
-    answerOne: String,
+		answerOne: String,
 
-    answerTwo: String,
+		answerTwo: String,
 
-    answerThree: String,
+		answerThree: String,
 
-    answerFour: String,
+		answerFour: String,
 
-    correctAnswer: String
-},
+		correctAnswer: String,
+	},
 
-{
-    timestamps: true
-})
+	{
+		timestamps: true,
+	},
+);
 
-const Question = mongoose.model('questions', questionSchema)
-module.exports = Question
+const QuestionModel = mongoose.model("questions", questionSchema);
+
+export default QuestionModel;

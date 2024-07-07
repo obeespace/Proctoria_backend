@@ -1,34 +1,26 @@
-const express = require('express')
-const router = express.Router()
-const {
-    createQuestions,
-    getQuestion,
-    updateQuestion,
-    getQuestions,
-    deleteQuestions,
-    submitAnswer,
-    getFinalResult,
-    getscore
-} = require('../controller/question.controller.js')
+import { Router } from 'express'
+
+const router = Router();
+
+import QuestionController from '../controller/question.controller.js';
+
+
+router.post('/', QuestionController.createQuestions)
+
+router.get('/:id', QuestionController.getQuestion)
+
+router.get('/', QuestionController.getQuestions)
+
+router.put('/:id', QuestionController.updateQuestion)
+
+router.delete('/:id', QuestionController.deleteQuestions)
+
+router.post('/submit-answer', QuestionController.submitAnswer)
+
+router.get('/final-result/:email', QuestionController.getFinalResult)
+
+router.get('/admin/scores', QuestionController.getscore)
 
 
 
-router.post('/', createQuestions)
-
-router.get('/:id', getQuestion)
-
-router.get('/', getQuestions)
-
-router.put('/:id', updateQuestion)
-
-router.delete('/:id', deleteQuestions)
-
-router.post('/submit-answer', submitAnswer)
-
-router.get('/final-result/:email', getFinalResult)
-
-router.get('/admin/scores', getscore)
-
-
-
-module.exports = router
+export default router
