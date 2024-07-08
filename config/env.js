@@ -1,9 +1,14 @@
+import dotenv from "dotenv";
 
-const MONGO_URI ="mongodb+srv://obeewon20:O3ZX4wPoIQxSjaJT@cluster0.vh9mqxs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const envs = dotenv.config({path: ".env"});
+
+const MONGO_URI = "mongodb+srv://obeewon20:O3ZX4wPoIQxSjaJT@cluster0.vh9mqxs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 const env = {
-    mongoUri: process.env.MONGO_URI || MONGO_URI,
-    port: process.env.PORT || 3007,
+    mongoUri: envs.parsed?.BASE_URL || MONGO_URI,
+    port: envs.parsed.PORT || 3007,
 }
 
 export default env;
+
+

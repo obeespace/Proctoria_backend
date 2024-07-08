@@ -2,9 +2,12 @@
 /node_modules/**/*/
 /dist/**/*/
 /build/**/*/
-/node_modules/
 .env
 .idea/**/*
 
 
 package-lock.json
+/node_modules
+/node_modules
+node_modules/.bin/nodemon
+/node_modules/.bin
