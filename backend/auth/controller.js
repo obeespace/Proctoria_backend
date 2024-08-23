@@ -47,7 +47,8 @@ const UserController = {
             const {email, password} = req.body
             const user = await Model.findOne({email: email})
                 if (!user){
-                    return res.status(401).json({message: 'Invalid email or password'})
+                    return res.status(401).json({message: 'User not found please signup'})
+
                 }
     
                 const isMatch = await compare(password, user.password)

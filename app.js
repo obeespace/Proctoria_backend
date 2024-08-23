@@ -14,7 +14,7 @@ app.use(urlencoded({extended: false}))
 app.use(cors())
 
 app.use(logger);
-app.use('/api/question', authenticate, questionRouter)
+app.use('/api/question', questionRouter)
 app.use('/api/studentuser', studentUserRouter)
 
 connectToDatabase();

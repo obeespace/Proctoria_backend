@@ -12,5 +12,5 @@ const studentSchema = new Schema({
     timestamps: true
 });
 
-const studentAnswer = model('StudentAnswer', studentSchema);
-export default studentAnswer;
+const studentAnswer = model('studentanswer', studentSchema);
+export default studentAnswer; 

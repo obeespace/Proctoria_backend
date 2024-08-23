@@ -119,12 +119,11 @@ const Controller = {
 
   },
 
-  getFinalResult: async (req, res) => {
+  getFinalResult: async (req, res) => { 
     try {
       const { email } = req.params;
 
-      const studentAnswers = await StudentModel.findOne({ email });
-
+      const studentAnswers = await StudentModel.find({ email });
       if (!studentAnswers.length) {
         return res
           .status(404)
