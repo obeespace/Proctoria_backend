@@ -33,7 +33,7 @@ const Controller = {
       const { id } = req.params;
       // excluding the correct answer
 
-      const question = await Model.findById(id).select("-correctAnswer");
+      const question = await Model.findById(id).select('-correctAnswer')
       res.status(200).json(question);
     } catch (error) {
       res.status(500).json({ message: error.message });
